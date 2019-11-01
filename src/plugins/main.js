@@ -219,7 +219,7 @@ export default async (context) => {
   await loadAndSetLocale(locale, { initialSetup: true })
 
   app.i18n.__detectBrowserLanguage = async route => {
-    if (detectBrowserLanguage) {
+    if (detectBrowserLanguage && !route.query.force) {
       const { alwaysRedirect, fallbackLocale } = detectBrowserLanguage
 
       let browserLocale
